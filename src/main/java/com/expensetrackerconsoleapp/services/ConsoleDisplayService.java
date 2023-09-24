@@ -19,8 +19,8 @@ public class ConsoleDisplayService {
         System.out.println("| Expense Tracker Console Application |");
         System.out.println(" -------------------------------------");
         System.out.println("1. Add");
-        System.out.println("2. Edit");
-        System.out.println("3. View");
+        System.out.println("2. View");
+        System.out.println("3. Open");
         System.out.println("4. Save");
         System.out.println("5. Delete");
         System.out.println("6. Exit");

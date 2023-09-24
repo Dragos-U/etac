@@ -11,6 +11,7 @@ import java.time.LocalDate;
 
 public class ApplicationLogic {
 
+    private final String filePath = "D:/Expenses.json";
     private final ExpenseDiary expenseDiary;
 
     public ApplicationLogic(ExpenseDiary expenseDiary) {
@@ -38,12 +39,7 @@ public class ApplicationLogic {
                 expenseDiary.addExpense(date, Expense.builder().amount(amount).description(description).build());
                 System.out.println(" >>> Expense added successfully.\n");
             }
-
             case 2 -> {
-                System.out.println("edit");
-            }
-
-            case 3 -> {
                 System.out.println("Expense diary info: ");
                 expenseDiary
                         .getExpenseMap()
@@ -51,18 +47,15 @@ public class ApplicationLogic {
                         .stream()
                         .forEach(ConsoleDisplayService::printExpensesToConsole);
             }
-
+            case 3 ->   ReportingService.openJsonFile(filePath);
             case 4 -> {
                 System.out.println("    Saving to file...");
-                String filePath = "D:/Expenses.json";
                 ReportingService.saveToJsonFile(filePath, expenseDiary);
             }
-
             case 5 -> {
                 expenseDiary.deleteExpense();
                 System.out.println("Last saved date entries were deleted.");
             }
-
             case 6 -> System.out.println("Thank you for using the app.");
             default -> {
                 System.out.println("Unknown input. Try again...\n");
